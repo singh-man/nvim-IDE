@@ -28,7 +28,7 @@ OR
 - Start nvim like ```nvim <file name or leave blank>```
 - Run ```:PlugInstall``` 
 - Exit and restart
-- First Run after plugins install; TreeSitter will trigger and will automatically isntall all its needed compiler.
+- First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compiler.
 - Install and modify LSP_servers as needed
 
 ### Install LSP servers
