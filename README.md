@@ -44,6 +44,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 *Beginner Friendly*
 https://www.jakewiesler.com/blog/getting-started-with-vim
+
 https://github.com/jakewies/.dotfiles/blob/main/nvim/.config/nvim/
 
 *Intermediate level*
