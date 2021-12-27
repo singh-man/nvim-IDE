@@ -17,9 +17,9 @@ fc-list | grep "Hack"
 ```
 
 ### Clone this repo
-- Under ~/.config/nvim -> make the dir **nivm** if missing.
+- Under ~/.config/nvim -> make the dir **nivm**, if missing.
 
-```git clone --depth 1 git@github.com:singh-man/nvim-IDE.git ./nvim```
+```git clone --depth 1 git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
 
 OR
 
