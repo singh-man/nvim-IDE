@@ -18,10 +18,14 @@ fc-list | grep "Hack"
 
 ### Clone this repo
 - Under ~/.config/nvim -> make the dir **nivm** if missing.
+
 '''git clone --depth 1 git@github.com:singh-man/nvim-IDE.git ./nvim'''
+
 OR
+
 '''git clone git@github.com:singh-man/nvim-IDE.git ./nvim'''
-- Start nvim like ```nvim init.vim```
+
+- Start nvim like ```nvim <file name or leave blank>```
 - Run ```:PlugInstall``` 
 - Exit and restart
 - First Run after plugins install; TreeSitter will trigger and will automatically isntall all its needed compiler.
