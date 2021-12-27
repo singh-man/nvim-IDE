@@ -43,9 +43,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 ### Refrence .dotfiles for nvim
 
 *Beginner Friendly*
-https://www.jakewiesler.com/blog/getting-started-with-vim
-
-https://github.com/jakewies/.dotfiles/blob/main/nvim/.config/nvim/
+https://www.jakewiesler.com/blog/getting-started-with-vim --- or --- https://github.com/jakewies/.dotfiles/blob/main/nvim/.config/nvim/
 
 *Intermediate level*
 https://github.com/VapourNvim/VapourNvim
