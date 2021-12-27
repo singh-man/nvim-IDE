@@ -23,7 +23,7 @@ fc-list | grep "Hack"
 
 OR
 
-```git clone git@github.com:singh-man/nvim-IDE.git ./nvim```
+```git clone git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
 
 - Start nvim like ```nvim <file name or leave blank>```
 - Run ```:PlugInstall``` 
