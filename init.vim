@@ -19,6 +19,7 @@ set timeoutlen=800          " timeout
 filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set ic                      " search igone case
+" set wrap!                   " Disable word wrap
 
 " " START opens nvim internal terminal below :- prefer use some plugin          
 " " open new split panes to right and below
