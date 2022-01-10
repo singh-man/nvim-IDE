@@ -15,7 +15,7 @@ fc-cache -f -v
 Check the new fonts with 
 fc-list | grep "Hack"
 ```
-For Windows if using WSL2
+For Windows if using WSL2; above steps not needed.
 - Install fonts in windows
 - Using Windows terminal:- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "SauceCodePro Nerd Font" to apply the font to all profiles
 ### Clone this repo
