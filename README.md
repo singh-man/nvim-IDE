@@ -17,7 +17,7 @@ fc-list | grep "Hack"
 ```
 For Windows if using WSL2; above steps not needed.
 - Install fonts in windows
-- Configure Windows terminal to use font type "HACK":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles
+- Configure Windows terminal to use font type "HACK":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles.
 ### Clone this repo
 - Under ~/.config/nvim -> make the dir **nivm**, if missing.
 
