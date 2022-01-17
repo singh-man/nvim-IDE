@@ -6,7 +6,8 @@
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/
 - JetBrainsMono (preferred)
 - Hack
-install nerd fonts type to get new icons and follow the install instructions.
+
+Install nerd fonts type to get new icons and follow the install instructions.
 
 In short
 ```
