@@ -3,8 +3,10 @@
 - Setup a plugin manager like Vim Plug
 
 ### Install fonts
-https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack/Regular
-install fonts type "HACK" for the system to get new icons and follow the install instructions.
+https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/
+- JetBrainsMono (preferred)
+- Hack
+install nerd fonts type to get new icons and follow the install instructions.
 
 In short
 ```
@@ -18,6 +20,7 @@ fc-list | grep "Hack"
 For Windows if using WSL2; above steps not needed.
 - Install fonts in windows
 - Configure Windows terminal to use font type "HACK":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles.
+- Also for Windows Terminal in the same settings, disable copy/paste for Ctrl-v and Ctrl-p.
 ### Clone this repo
 - Under ~/.config/nvim -> make the dir **nivm**, if missing.
 
