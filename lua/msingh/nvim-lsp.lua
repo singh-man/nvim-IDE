@@ -68,7 +68,7 @@ capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches using on_attach function
-local servers = { 'bashls', 'dockerls', 'jdtls', 'pyright', 'sumneko_lua', 'tsserver', 'yamlls' }
+local servers = { 'bashls', 'jdtls', 'pyright', 'sumneko_lua', 'tsserver', 'yamlls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -79,7 +79,18 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-
+-- dockerls server setup
+nvim_lsp['dockerls'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    cmd = {"docker-langserver", "--stdio"},
+    filetypes = {"dockerfile", "qib-11-Dockerfile"},
+    -- root_dir = root_pattern("Dockerfile"),
+    single_file_support = true
+}
 --
 -- Null-ls
 --

@@ -11,7 +11,7 @@ set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
-set cc=120                  " set an 80 column border for good coding style
+set cc=120                  " set an 120 column border for good coding style
 set mouse=a                 " Mouse support enabled
 set noshowmode              " the command bar -- INSERT -- is not shown
 set timeoutlen=800          " timeout
@@ -20,22 +20,6 @@ filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set ic                      " search igone case
 " set wrap!                   " Disable word wrap or use :set nowrap
-
-" " START opens nvim internal terminal below :- prefer use some plugin          
-" " open new split panes to right and below
-" set splitright
-" set splitbelow
-" " turn terminal to normal mode with escape
-" tnoremap <Esc> <C-\><C-n>
-" " start terminal in insert mode
-" au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-" " open terminal on ctrl+n
-" function! OpenTerminal()
-"   split term://bash
-"   resize 10
-" endfunction
-" nnoremap <c-n> :call OpenTerminal()<CR>
-" " STOP
 
 " Installed Plugins
 call plug#begin()
@@ -122,3 +106,7 @@ nnoremap <leader>th <cmd>ToggleTerm size=10 dir=~/ direction=horizontal<CR>
 
 " Plugins config
 lua require('msingh')
+
+" Enable below WSL; uses win32yank.exe at location /usr/local/bin
+" https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+set clipboard=unnamedplus
