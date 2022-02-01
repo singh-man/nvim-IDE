@@ -81,8 +81,8 @@ nnoremap <silent><A-,> :BufferPrevious<CR>
 nnoremap <silent><A-.> :BufferNext<CR>
 " nnoremap <silent><A-right> :BufferNext<CR>G
 nnoremap <silent><A-<> :BufferMovePrevious<CR>                                                                   
-nnoremap <silent><A->> :BufferMoveNext<CR>
-nnoremap <silent><c-w> :BufferClose<CR>
+nnoremap <silent><A-<> :BufferMoveNext<CR>
+nnoremap <silent><leader>x :BufferClose<CR>
 nnoremap <silent><A-{}> :BufferGoto {}<CR>
 
 " <leader> based keys below this----------------------------------------- 
