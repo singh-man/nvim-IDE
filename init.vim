@@ -89,7 +89,8 @@ nnoremap <silent><A-{}> :BufferGoto {}<CR>
 " <leader> based keys below this----------------------------------------- 
 
 " Save all buffers -special using space-bar
-nnoremap <space>w :wa<CR>
+nnoremap <space>s :wa<CR>
+nnoremap <space>w :set wrap!<CR>
 
 " Terminal config
 nnoremap <leader>t <cmd>ToggleTerm size=10 dir=~/ direction=float<CR>
