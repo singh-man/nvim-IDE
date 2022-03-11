@@ -70,6 +70,9 @@ Plug 'onsails/lspkind-nvim'
 
 " Trouble - uses web-dev-icons
 Plug 'folke/trouble.nvim'
+
+" Code Comment
+Plug 'terrortylor/nvim-comment'
 call plug#end()
 
 
@@ -93,9 +96,6 @@ nnoremap <space>s :wa<CR>
 nnoremap <space>w :set wrap!<CR>
 
 " Terminal config
-nnoremap <leader>t <cmd>ToggleTerm size=10 dir=~/ direction=float<CR>
-nnoremap <leader>tv <cmd>ToggleTerm size=40 dir=~/ direction=vertical<CR>
-nnoremap <leader>th <cmd>ToggleTerm size=10 dir=~/ direction=horizontal<CR>
 " nnoremap <silent><c-t> :FloatermNew<CR>
 " nnoremap <leader>nnn :FloatermNew nnn<CR>
 

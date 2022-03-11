@@ -10,4 +10,6 @@ require"toggleterm".setup {
 }
 
 -- key map for this
--- vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm size=10 dir=~/ direction=float<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm size=10 dir=~/ direction=float<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>tv', ':ToggleTerm size=40 dir=~/ direction=vertical<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>th', ':ToggleTerm size=10 dir=~/ direction=horizontal<CR>', {noremap = true, silent = true})
