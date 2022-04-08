@@ -1,5 +1,5 @@
 ### Install neovim
-- Follow neovim latest installation guide; don't install via Linux package manager
+- Follow neovim latest installation guide; don't install via package manager (Debian/ubuntu)
 - Setup a plugin manager like Vim Plug
 
 ### Install fonts
@@ -22,6 +22,7 @@ For Windows if using WSL2; above steps not needed.
 - Install fonts in windows
 - Configure Windows terminal to use font type "HACK":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles.
 - Also for Windows Terminal in the same settings, disable copy/paste for Ctrl-v and Ctrl-p.
+
 ### Clone this repo
 - Under ~/.config/nvim -> make the dir **nivm**, if missing.
 
@@ -31,10 +32,15 @@ OR
 
 ```git clone git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
 
+OR
+
+```git clone https://github.com/singh-man/nvim-IDE.git ~/.config/nvim```
+
+- without starting nvim ````nvim --headless +PlugInstall +qall```
 - Start nvim like ```nvim <file name or leave blank>```
-- Run ```:PlugInstall``` 
+- Run ```:PlugInstall```
 - Exit and restart
-- First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compiler.
+- First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compilers.
 - Install and modify LSP_servers as needed
 
 ### Install LSP servers
