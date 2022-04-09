@@ -24,7 +24,7 @@ For Windows if using WSL2; above steps not needed.
 - Also for Windows Terminal in the same settings, disable copy/paste for Ctrl-v and Ctrl-p.
 
 ### Clone this repo
-- Under ~/.config/nvim -> make the dir **nivm**, if missing.
+- Under ~/.config/nvim -> make the dir **nvim**, if missing.
 
 ```git clone --depth 1 git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
 
@@ -36,10 +36,12 @@ OR
 
 ```git clone https://github.com/singh-man/nvim-IDE.git ~/.config/nvim```
 
-- without starting nvim ````nvim --headless +PlugInstall +qall```
-- Start nvim like ```nvim <file name or leave blank>```
-- Run ```:PlugInstall```
-- Exit and restart
+- Install Plugins in NeoVim by --
+-- without starting nvim ```nvim --headless +PlugInstall +qall``` 
+-- OR
+-- Start nvim like ```nvim <file name or leave blank>```
+-- Run ```:PlugInstall```
+-- Exit and restart
 - First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compilers.
 - Install and modify LSP_servers as needed
 
