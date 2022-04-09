@@ -36,7 +36,7 @@ OR
 
 ```git clone https://github.com/singh-man/nvim-IDE.git ~/.config/nvim```
 
-- Install Plugins in NeoVim by --
+- Install Plugins in NeoVim by
 -- without starting nvim ```nvim --headless +PlugInstall +qall``` 
 -- OR
 -- Start nvim like ```nvim <file name or leave blank>```
