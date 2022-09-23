@@ -7,11 +7,11 @@ require('telescope').setup{
     },
   },
   pickers = {
-    find_files = {
-      theme = "dropdown",
-      horizontal = "0.8",
-    },
-    -- live_grep = {
+    -- find_files = {
+    --   theme = "dropdown",
+    --   horizontal = "0.8",
+    -- },
+    -- -- live_grep = {
     --   theme = "dropdown",
     -- }
     --
