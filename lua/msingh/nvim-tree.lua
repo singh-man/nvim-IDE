@@ -18,7 +18,7 @@ require'nvim-tree'.setup {
     args = {}
   },
   git = { enable = true, ignore = true, timeout = 500, },
-  view = { width = 25, side = 'left', auto_resize = true, mappings = {custom_only = false, list = {}}},
+  view = { width = 25, side = 'left', adaptive_size = true, mappings = {custom_only = false, list = {}}},
   trash = {cmd = "trash", require_confirm = true }
 }
 

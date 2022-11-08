@@ -1,6 +1,9 @@
 ### Install neovim
 - Follow neovim latest installation guide; don't install via package manager (Debian/ubuntu)
 - Setup a plugin manager like Vim Plug
+- make sure python3 and pip3 are installed
+- install npm ```curl -sL install-node.vercel.app/lts | sudo bash``` or google coc-nvim and check what it says to install npm
+- after npm install **yarn** via ```yarn global add yaml-language-server```
 
 ### Install fonts
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/
@@ -16,7 +19,7 @@ Put the fonts in
 Run
 fc-cache -f -v
 Check the new fonts with 
-fc-list | grep "Hack"
+fc-list | grep "Jet"
 ```
 For Windows if using WSL2; above steps not needed.
 - Install fonts in windows
@@ -47,12 +50,12 @@ OR
 
 ### Install LSP servers
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-- I am not using plugin nvim-lsp-installter so each lsp server needs to be manually installed; follow the above link.
+- I am not using plugin **nvim-lsp-installer** so each lsp server needs to be manually installed; follow the above link.
 - Modify file 'lua/msingh/nvim-lsp.lua' to add servers as needed
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
 
-> ```<leader> '\'``` key is preferable for custom keymap as which-key plugins help becomes useful for it.
+> ```<leader> '\'``` key is preferable for custom keymap as which-key plugins help becomes useful for it or use **space** key if preferred.
 
 ### Refrence .dotfiles for nvim
 
