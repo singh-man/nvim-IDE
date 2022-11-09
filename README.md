@@ -6,7 +6,7 @@
 - after npm install **yarn** via ```yarn global add yaml-language-server```
 
 ### Install fonts
-https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/
+https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ **OR** for windows better download from here https://www.nerdfonts.com/font-download
 - JetBrainsMono (preferred)
 - Hack
 
