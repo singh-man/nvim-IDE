@@ -57,6 +57,8 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 > ```<leader> '\'``` key is preferable for custom keymap as which-key plugins help becomes useful for it or use **space** key if preferred.
 
+> TO-DO try using the **mason.nvim and mason-lspconfig** instead of nvim-lsp-installer
+
 ### Refrence .dotfiles for nvim
 
 *Beginner Friendly*
