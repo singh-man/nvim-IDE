@@ -53,6 +53,9 @@ Plug 'nvim-lualine/lualine.nvim'
 " Which key
 Plug 'folke/which-key.nvim'
 
+" Auto install lsp-serveers
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'     
 Plug 'jose-elias-alvarez/null-ls.nvim'

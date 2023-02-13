@@ -1,5 +1,6 @@
 require('msingh.comment')
 require('msingh.lualine')
+require('msingh.mason')
 require('msingh.nvim-cmp')
 require('msingh.nvim-lsp')
 require('msingh.nvim-tree')
