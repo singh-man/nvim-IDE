@@ -1,9 +1,9 @@
 ### Install neovim
-- Follow neovim latest installation guide; don't install via package manager (Debian/ubuntu)
-- Setup a plugin manager like Vim Plug
-- make sure python3 and pip3 are installed
-- install npm ```curl -sL install-node.vercel.app/lts | sudo bash``` or google coc-nvim and check what it says to install npm
-- after npm install **yarn** via ```yarn global add yaml-language-server```
+- Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu).
+- Setup a plugin manager like Vim Plug.
+- install python3 and pip3.
+- install npm: google ```coc-nvim``` and check what it says to install npm or ```curl -sL install-node.vercel.app/lts | sudo bash```
+- install ```npm install --global yarn```
 
 ### Install fonts
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ **OR** for windows better download from here https://www.nerdfonts.com/font-downloads
@@ -50,14 +50,13 @@ OR
 
 ### Install LSP servers
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-- I am not using plugin **nvim-lsp-installer** so each lsp server needs to be manually installed; follow the above link.
+- Using plugin ```mason.nvim``` lsp-servers can be installed with command ```:LspInstall``` or for manual installation of lsp-serves, follow the above link.
 - Modify file 'lua/msingh/nvim-lsp.lua' to add servers as needed
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
 
-> ```<leader> '\'``` key is preferable for custom keymap as which-key plugins help becomes useful for it or use **space** key if preferred.
+> ```<leader> '\'``` key is used for custom keymap as which-key plugins help becomes useful for it or use **space** key if preferred.
 
-> TO-DO try using the **mason.nvim and mason-lspconfig** instead of nvim-lsp-installer
 
 ### Refrence .dotfiles for nvim
 
