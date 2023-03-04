@@ -2,8 +2,8 @@
 - Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu).
 - Setup a plugin manager like Vim Plug.
 - install python3 and pip3.
-- install npm: google ```coc-nvim``` and check what it says to install npm or ```curl -sL install-node.vercel.app/lts | sudo bash```
-- install ```npm install --global yarn```
+- install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
+- install `npm install --global yarn`
 
 ### Install fonts
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ **OR** for windows better download from here https://www.nerdfonts.com/font-downloads
@@ -40,18 +40,18 @@ OR
 ```git clone https://github.com/singh-man/nvim-IDE.git ~/.config/nvim```
 
 - Install Plugins in NeoVim by
-  - without starting nvim ```nvim --headless +PlugInstall +qall``` 
+  - without starting nvim `nvim --headless +PlugInstall +qall` 
   - OR
-  - Start nvim like ```nvim <file name or leave blank>```
-  - Run ```:PlugInstall```
+  - Start nvim like `nvim <file name or leave blank>`
+  - Run `:PlugInstall`
   - Exit and restart
 - First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compilers.
 - Install and modify LSP_servers as needed
 
 ### Install LSP servers
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-- Using plugin ```mason.nvim``` lsp-servers can be installed with command ```:LspInstall``` or for manual installation of lsp-serves, follow the above link.
-- Modify file 'lua/msingh/nvim-lsp.lua' to add servers as needed
+- Using plugin `mason.nvim` lsp-servers can be installed with command `:LspInstall` or for manual installation of lsp-serves, follow the above link.
+- Modify file `lua/msingh/nvim-lsp.lua` to add servers as needed
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
 
@@ -66,5 +66,5 @@ https://www.jakewiesler.com/blog/getting-started-with-vim --- or --- https://git
 *Intermediate level*
 https://github.com/VapourNvim/VapourNvim
 
-*Advanced setup*
+*Advanced setup`
 https://github.com/LunarVim/LunarVim
