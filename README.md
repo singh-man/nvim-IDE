@@ -3,7 +3,7 @@ Check how to install VimPlug for NeoVim
 https://github.com/junegunn/vim-plug#unix-linux
 
 ### Install neovim
-- Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu).
+- Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu). https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
 - Setup a plugin manager like Vim Plug.
 - Install python3 and pip3.
 - Install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
