@@ -1,9 +1,13 @@
+### Install plugin manager VimPlug
+Check how to install VimPlug for NeoVim
+https://github.com/junegunn/vim-plug#unix-linux
+
 ### Install neovim
 - Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu).
 - Setup a plugin manager like Vim Plug.
-- install python3 and pip3.
-- install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
-- install `npm install --global yarn`
+- Install python3 and pip3.
+- Install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
+- Install `npm install --global yarn`
 
 ### Install fonts
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ **OR** for windows better download from here https://www.nerdfonts.com/font-downloads
