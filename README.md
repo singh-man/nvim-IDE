@@ -10,13 +10,14 @@ https://github.com/junegunn/vim-plug#unix-linux
 - Install `npm install --global yarn`
 
 ### Install fonts
-https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ **OR** for windows better download from here https://www.nerdfonts.com/font-downloads
+
+Install nerd fonts type to get new icons and follow the install instructions.
 - JetBrainsMono (preferred)
 - Hack
 
-Install nerd fonts type to get new icons and follow the install instructions.
+#### Linux
 
-In short
+https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ 
 ```
 Put the fonts in
 ~/.local/share/fonts/
@@ -25,9 +26,13 @@ fc-cache -f -v
 Check the new fonts with 
 fc-list | grep "Jet"
 ```
-For Windows if using WSL2; above steps not needed.
-- Install fonts in windows
-- Configure Windows terminal to use font type "HACK":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles.
+
+#### Windows [WSL]
+
+Download fonts from https://www.nerdfonts.com/font-downloads
+
+- Install fonts in Windows via Windows settings.
+- Configure Windows terminal to use font type "Jet":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles.
 - Also for Windows Terminal in the same settings, disable copy/paste for Ctrl-v and Ctrl-p.
 
 ### Clone this repo
@@ -35,7 +40,7 @@ For Windows if using WSL2; above steps not needed.
 
 ```git clone --depth 1 git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
 
-OR
+OR (if you have ssh development key)
 
 ```git clone git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
 
@@ -53,8 +58,7 @@ OR
 - Install and modify LSP_servers as needed
 
 ### Install LSP servers
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-- Using plugin `mason.nvim` lsp-servers can be installed with command `:LspInstall` or for manual installation of lsp-serves, follow the above link.
+- Plugin `mason.nvim` is configured, so lsp-servers can be installed with command `:LspInstall` or for manual installation of lsp-serves, follow https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 - Modify file `lua/msingh/nvim-lsp.lua` to add servers as needed
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
