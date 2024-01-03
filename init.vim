@@ -25,8 +25,8 @@ set ic                      " search igone case
 " Installed Plugins
 call plug#begin()
 " NVIM tree
-Plug 'kyazdani42/nvim-web-devicons' " for file icons this is used by many plugins
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " for file icons this is used by many plugins
+Plug 'nvim-tree/nvim-tree.lua'
 
 " Cheatsheet popup - uses nvim-web-devicons
 Plug 'sudormrfbin/cheatsheet.nvim'
@@ -38,7 +38,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " Neovim TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/playground' " Deprecated. Its integrated to neovim now
 
 " Tabs
 Plug 'romgrk/barbar.nvim'
