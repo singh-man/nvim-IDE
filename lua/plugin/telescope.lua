@@ -2,6 +2,13 @@ require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
+    -- To use vertical preview window enable below!!!
+    -- layout_strategy = "vertical",
+    -- layout_config = {
+    --   vertical = {
+    --     preview_height = 0.5,
+    --   },
+    -- },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)
