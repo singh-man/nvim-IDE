@@ -1,13 +1,11 @@
 -- =============================================================================
--- init.lua - Plugin Manager: vim.pack (Neovim 0.11+)
+-- init.lua - Plugin Manager: vim.pack (Neovim 0.12+)
 -- =============================================================================
--- vim.pack.add()     → declare plugins; each entry MUST use src = "..."
--- vim.pack.install() → clone any not-yet-present plugins (run once after edits)
--- vim.pack.update()  → pull latest commits for all managed plugins
+-- vim.pack.add()    → install missing plugins and add them to the runtime
+-- vim.pack.update() → fetch updates and open a confirmation buffer
 --
 -- Plugins land in:
---   ~/.local/share/nvim/site/pack/nvim/start/<name>  (auto-loaded)
---   ~/.local/share/nvim/site/pack/nvim/opt/<name>    (opt=true, load via :packadd)
+--   stdpath("data")/site/pack/core/opt/<name>
 -- =============================================================================
 
 -- ---------------------------------------------------------------------------
@@ -18,12 +16,12 @@ vim.g.mapleader = " "
 -- ---------------------------------------------------------------------------
 -- PLUGINS
 -- ---------------------------------------------------------------------------
--- Required key: src = "github-owner/repo"  (shorthand, no full URL needed)
--- Optional key: opt = true  → load on demand with :packadd <name>
+-- Required key: src = "<Git repository URI>"
+-- Optional key: version = "<branch, tag, or commit>"
 --
 -- After adding a plugin here:
---   1. Save & restart Neovim
---   2. :lua vim.pack.install()
+--   1. Save the file
+--   2. Restart Neovim; vim.pack.add() installs the missing plugin
 -- ---------------------------------------------------------------------------
 
 vim.pack.add({
@@ -75,10 +73,9 @@ vim.pack.add({
   { src = "https://github.com/terrortylor/nvim-comment" },
 })
 
--- NOTE: vim.pack has no native tag pinning. To pin a specific release:
---   cd ~/.local/share/nvim/site/pack/nvim/start/<plugin-dir>
---   git checkout <tag>          e.g. v0.2.0 for telescope, v1.x for blink.cmp
--- vim.pack.update() will not override a manually checked-out ref.
+-- Pin a plugin with its version field, for example:
+-- { src = "https://github.com/example/plugin", version = "v1.2.3" }
+-- Run vim.pack.update() after changing a version to synchronize the checkout.
 
 -- ---------------------------------------------------------------------------
 -- OPTIONS

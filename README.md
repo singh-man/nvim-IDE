@@ -1,15 +1,11 @@
 
-Using ```vim.pack``` neovim 0.11+ inbuilt package manager below ```VimPlug``` is deprecated.
-
-### Deprecated: Install plugin manager VimPlug
-~Check how to install VimPlug for NeoVim ```https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation```~
+This configuration uses Neovim 0.12+'s built-in `vim.pack` plugin manager.
 
 ### Install neovim
 - Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu). https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
-- ~Setup a plugin manager like Vim Plug `For windows use powershell`.~
-- Install python3 and pip3.
-- Install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
-- Install `npm install --global yarn`
+- Install Git, curl, a C compiler, and `tree-sitter-cli` 0.26.1 or newer for plugins and Tree-sitter parsers.
+- Install Python 3 and pip.
+- Install Node.js and npm for Prettier and Node-based language servers managed by Mason.
 
 ### Install fonts
 
@@ -54,19 +50,17 @@ Windows
 
 ```git clone https://github.com/singh-man/nvim.git ~/AppData/Local/nvim```
 
-- Install Plugins in NeoVim by
-  - ~without starting nvim `nvim --headless +PlugInstall +qall`~
-  - ~OR~
-  - Start nvim like `nvim <file name or leave blank>`; it should autoinstall all the configured plugins.
-  - ~Run `:PlugInstall`~
-  - else do; ```:lua vim.pack.install()``` or ```:lua vim.pack.update()```
-  - Exit and restart
-- First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compilers.
+### Install plugins
+
+- Start Neovim with `nvim`. `vim.pack.add()` installs any missing plugins automatically.
+- Tree-sitter installs the configured language parsers asynchronously on the first run. Restart Neovim after installation finishes.
+- To update plugins later, run `:lua vim.pack.update()`, review the proposed changes, and use `:write` to confirm them.
+- Run `:TSUpdate` after updating `nvim-treesitter` so installed parsers remain compatible.
 - Install and modify LSP_servers as needed
 
 ### Install LSP servers
 - Plugin `mason.nvim` is configured, so lsp-servers can be installed with command `:MasonInstall <server>` or for manual installation of lsp-servers, follow [https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
-- Modify file `lua/msingh/nvim-lsp.lua` to enable servers as needed
+- Modify file `lua/plugin/nvim-lsp.lua` to enable servers as needed
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
 

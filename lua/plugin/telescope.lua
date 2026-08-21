@@ -40,13 +40,11 @@ require('telescope').setup{
 vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopePreviewerLoaded",
   callback = function(args)
-    vim.wo.wrap = true
-    vim.wo.linebreak = true
+    local data = args.data or {}
+    local is_csv = vim.endswith((data.bufname or ""):lower(), ".csv")
 
-    if args.data.filetype ~= "help" then
-      vim.wo.number = true
-    elseif args.data.bufname:match("*.csv") then
-      vim.wo.wrap = false
-    end
+    vim.wo.wrap = not is_csv
+    vim.wo.linebreak = not is_csv
+    vim.wo.number = data.filetype ~= "help"
   end,
 })
