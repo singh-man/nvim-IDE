@@ -54,7 +54,7 @@ vim.pack.add({
   { src = "https://github.com/folke/which-key.nvim" },
 
   -- Mason (LSP server installer)
-  { src = "https://github.com/williamboman/mason.nvim" },
+  { src = "https://github.com/mason-org/mason.nvim" },
 
   -- LSP config
   { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -64,7 +64,9 @@ vim.pack.add({
 
   -- Autocompletion
   { src = "https://github.com/rafamadriz/friendly-snippets" },
-  { src = "https://github.com/saghen/blink.cmp", version = "v1.10.2" },
+  -- { src = "https://github.com/saghen/blink.cmp", version = "v1.10.2" },
+  { src = "https://github.com/saghen/blink.cmp"},
+  { src = "https://github.com/saghen/blink.lib"},
 
   -- Diagnostics UI
   { src = "https://github.com/folke/trouble.nvim" },
