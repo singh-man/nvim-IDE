@@ -1,76 +1,123 @@
+# Neovim configuration
 
-This configuration uses Neovim 0.12+'s built-in `vim.pack` plugin manager.
+This configuration requires Neovim 0.12 or newer and uses its built-in `vim.pack` plugin manager.
 
-### Install neovim
-- Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu). https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
-- Install Git, curl, a C compiler, and `tree-sitter-cli` 0.26.1 or newer for plugins and Tree-sitter parsers.
-- Install Python 3 and pip.
-- Install Node.js and npm for Prettier and Node-based language servers managed by Mason.
+## Install Neovim and dependencies
 
-### Install fonts
+Follow the latest [Neovim installation guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) to install Neovim 0.12 or newer. Distribution repositories can contain older Neovim releases, especially on Debian and Ubuntu.
 
-Install nerd fonts type to get new icons and follow the install instructions.
-- JetBrainsMono (preferred)
-- Hack
+The configuration also uses:
 
-#### Linux
+- Git and curl to install plugins.
+- A C/C++ compiler and `tree-sitter-cli` 0.26.1 or newer to install Tree-sitter parsers.
+- Python 3 and pip for Python tooling.
+- Node.js and npm for Prettier and Node-based language servers installed by Mason.
+- `ripgrep` (`rg`) for Telescope live grep and file search.
+- `fd` for additional Telescope capabilities (optional because Telescope can use `rg`).
+- `jq` for the `<leader>jq` JSON-formatting mapping.
+- `trash` for nvim-tree's trash action.
 
-https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/ 
+### Debian, Ubuntu, or WSL
+
+```sh
+sudo apt update
+sudo apt install git curl build-essential python3 python3-pip nodejs npm ripgrep fd-find jq trash-cli
 ```
-Put the fonts in
-~/.local/share/fonts/
-Run
+
+Debian-based systems install the `fd` executable as `fdfind`; Telescope detects both names.
+
+Install the Tree-sitter CLI using Cargo, or download a prebuilt binary from the [Tree-sitter releases](https://github.com/tree-sitter/tree-sitter/releases). If `cargo` is unavailable, install the Rust toolchain first by following the [Rust installation guide](https://www.rust-lang.org/tools/install).
+
+```sh
+cargo install --locked tree-sitter-cli
+```
+
+### macOS with Homebrew
+
+```sh
+brew install neovim git curl python node ripgrep fd jq tree-sitter-cli
+```
+
+Current macOS releases provide `/usr/bin/trash`; verify that it is available with `command -v trash` because nvim-tree uses it for trash operations.
+
+### Verify the required commands
+
+```sh
+nvim --version
+python3 --version
+pip3 --version
+node --version
+npm --version
+tree-sitter --version
+rg --version
+```
+
+## Install fonts
+
+Install a [Nerd Font](https://www.nerdfonts.com/font-downloads) so file and diagnostic icons render correctly. Recommended fonts:
+
+- JetBrainsMono Nerd Font
+- Hack Nerd Font
+
+### Linux
+
+Place the font files in `~/.local/share/fonts`, refresh the font cache, and verify the installation:
+
+```sh
 fc-cache -f -v
-Check the new fonts with 
-fc-list | grep "Jet"
+fc-list | grep "JetBrainsMono"
 ```
 
-#### Windows [WSL]
+### Windows and WSL
 
-Download fonts from https://www.nerdfonts.com/font-downloads
+Install the font through Windows Settings, then select it in Windows Terminal. WSL uses the Windows Terminal font rather than a font installed inside the WSL filesystem.
 
-- Install fonts in Windows via Windows settings.
-- Configure Windows terminal to use font type "Jet":- Open it -> "Ctrl+," -> find an attribute "profiles{...} -> defaults{...} -> add to "defaults" an attribute "fontFace": "Hack Regular Nerd Font" to apply the font to all profiles.
-- Also for Windows Terminal in the same settings, disable copy/paste for Ctrl-v and Ctrl-p.
+## Clone this repository
 
-### Clone this repo
-- Under ~/.config/nvim -> make the dir **nvim**, if missing.
+On Linux, macOS, or WSL, clone with SSH:
 
-```git clone --depth 1 git@github.com:singh-man/nvim.git ~/.config/nvim```
+```sh
+git clone git@github.com:singh-man/nvim.git ~/.config/nvim
+```
 
-OR (if you have ssh development key)
+Or clone with HTTPS:
 
-```git clone git@github.com:singh-man/nvim.git ~/.config/nvim```
+```sh
+git clone https://github.com/singh-man/nvim.git ~/.config/nvim
+```
 
-OR
+On native Windows PowerShell:
 
-```git clone https://github.com/singh-man/nvim.git ~/.config/nvim```
+```powershell
+git clone https://github.com/singh-man/nvim.git "$env:LOCALAPPDATA\nvim"
+```
 
-Windows
+## Install and update plugins
 
-```git clone https://github.com/singh-man/nvim.git ~/AppData/Local/nvim```
-
-### Install plugins
-
-- Start Neovim with `nvim`. `vim.pack.add()` installs any missing plugins automatically.
-- Tree-sitter installs the configured language parsers asynchronously on the first run. Restart Neovim after installation finishes.
-- To update plugins later, run `:lua vim.pack.update()`, review the proposed changes, and use `:write` to confirm them.
+- Start Neovim with `nvim`. `vim.pack.add()` installs missing plugins automatically.
+- Tree-sitter installs the configured parsers asynchronously on the first run. Restart Neovim after installation finishes.
+- Run `:lua vim.pack.update()`, review the proposed changes, and use `:write` to confirm a plugin update.
 - Run `:TSUpdate` after updating `nvim-treesitter` so installed parsers remain compatible.
-- Install and modify LSP_servers as needed
+- Run `:checkhealth` to verify plugins and external dependencies.
 
-### Install LSP servers
-- Plugin `mason.nvim` is configured, so lsp-servers can be installed with command `:MasonInstall <server>` or for manual installation of lsp-servers, follow [https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
-- Modify file `lua/plugin/nvim-lsp.lua` to enable servers as needed
+## Install LSP servers
 
-> Every lsp server has auto-load custom **root_folder**; do check the docs.
+Mason installs language servers from inside Neovim:
 
-> ```<leader> 'Space'``` key is used for custom keymap as which-key plugins help becomes useful; or reverto to default ```\``` in init.vim.
+```vim
+:MasonInstall lua-language-server bash-language-server pyright vim-language-server docker-language-server
+```
 
-### Format files
+Edit `lua/plugin/nvim-lsp.lua` when enabling or configuring additional servers.
+Refer to the [nvim-lspconfig configurations](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md) for server-specific settings and project-root behavior.
 
-[`conform.nvim`](https://github.com/stevearc/conform.nvim) is configured to use Prettier for JavaScript, TypeScript, JSON, JSONC, YAML, HTML, CSS, SCSS, Less, Vue, Angular, Markdown, MDX, GraphQL, and Handlebars files.
+The **leader** key is Space.
 
-Install Prettier through Mason from inside Neovim:
+## Format files
+
+[`conform.nvim`](https://github.com/stevearc/conform.nvim) uses Prettier for JavaScript, TypeScript, JSON, JSONC, YAML, HTML, CSS, SCSS, Less, Vue, Angular, Markdown, MDX, GraphQL, and Handlebars files.
+
+Install Prettier through Mason:
 
 ```vim
 :MasonInstall prettier
@@ -78,17 +125,9 @@ Install Prettier through Mason from inside Neovim:
 
 Press `<leader>p` in normal mode to format the current file. Select a range in visual mode and press `<leader>p` to format only that range. Run `:ConformInfo` to check which formatter is available for the current buffer.
 
-The `<leader>jq` mapping formats the entire JSON buffer with `jq`. Install `jq` separately if it is not already available:
+The `<leader>jq` mapping formats an entire JSON buffer using `jq`. The buffer must contain valid JSON; the mapping does not support comments in JSONC files.
 
-```sh
-# Debian/Ubuntu/WSL
-sudo apt install jq
-```
-
-The `jq` mapping requires valid JSON and does not support comments in JSONC files.
-
-
-### Refrence .dotfiles for nvim
+## Further reading
 
 *Beginner Friendly*
 https://www.jakewiesler.com/blog/getting-started-with-vim --- or --- https://github.com/jakewies/.dotfiles/blob/main/nvim/.config/nvim/

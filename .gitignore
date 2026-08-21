@@ -4,7 +4,7 @@
 *.swp
 *.swo
 *~
- nvim-pack-lock.json
+nvim-pack-lock.json
 
 # Operating-system metadata
 .DS_Store
