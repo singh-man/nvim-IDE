@@ -16,5 +16,11 @@ require'nvim-tree'.setup {
 }
 
 -- NeoVim key map for this
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>nr', ':NvimTreeRefresh<CR>', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>", {
+  silent = true,
+  desc = "Toggle file tree",
+})
+vim.keymap.set("n", "<leader>nr", "<Cmd>NvimTreeRefresh<CR>", {
+  silent = true,
+  desc = "Refresh file tree",
+})

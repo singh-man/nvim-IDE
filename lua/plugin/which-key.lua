@@ -19,11 +19,11 @@ wk.add({
     { "<leader>f", group = "File/Telescope" },
     { "<leader>f1", hidden = true },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffer" },
-    { "<leader>fe", desc = "Edit File- only a label" },
+    -- { "<leader>fe", desc = "Edit File- only a label" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find tags" },
-    { "<leader>fn", desc = "New File- only a label" },
+    -- { "<leader>fn", desc = "New File- only a label" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", remap = true },
     {
     -- Nested mappings are allowed and can be added in any order
