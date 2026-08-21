@@ -21,7 +21,7 @@ gradlew
 gradlew.bat
 package.json
 package-lock.json
-nvim-pack-lock.json
+# nvim-pack-lock.json # to be a part of git repo for vim.pack() nvim
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 
