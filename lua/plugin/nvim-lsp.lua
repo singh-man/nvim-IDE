@@ -46,6 +46,24 @@ vim.lsp.config('lua_ls', {
     Lua = {}
   }
 })
-vim.lsp.enable({'bashls', 'docker_language_server', 'lua_ls', 'pyright', 'vimls'})
+
+-- Use the compound filetype expected by docker_language_server so it attaches
+-- automatically when opening any of the standard Docker Compose filenames.
+vim.filetype.add({
+  filename = {
+    ["docker-compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["compose.yaml"] = "yaml.docker-compose",
+  },
+})
+
+vim.lsp.enable({
+  "bashls",
+  "docker_language_server",
+  "lua_ls",
+  "pyright",
+  "vimls",
+})
 
 vim.diagnostic.config({ virtual_text = true })
