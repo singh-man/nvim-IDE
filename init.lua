@@ -69,8 +69,6 @@ vim.pack.add({
   -- Diagnostics UI
   { src = "https://github.com/folke/trouble.nvim" },
 
-  -- Code comments
-  { src = "https://github.com/terrortylor/nvim-comment" },
 })
 
 -- Pin a plugin with its version field, for example:
@@ -86,6 +84,7 @@ opt.encoding       = "UTF-8"
 opt.showmatch      = true           -- show matching brackets
 opt.ignorecase     = true           -- case-insensitive search
 opt.smartcase      = true           -- search like /Vim becomes case-sensitive
+opt.spell          = true           -- highlight misspelled words
 opt.mouse          = "a"            -- full mouse support
 opt.mousescroll    = "ver:1,hor:1"  -- use :set mousescroll& = to use default which is mousescroll=ver:3,hor:6
 opt.hlsearch       = true           -- highlight search results

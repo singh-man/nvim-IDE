@@ -1,5 +1,4 @@
 require('plugin.blink-cmp')
-require('plugin.comment')
 require('plugin.conform')
 require('plugin.lualine')
 require('plugin.mason')
