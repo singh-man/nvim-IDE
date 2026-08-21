@@ -15,13 +15,13 @@
 require("blink.cmp").setup({
     fuzzy = { implementation = "lua" },
 	signature = { enabled = true },
-    opts = {
-        -- snippets = { preset = 'luasnip' },
-        -- -- ensure you have the `snippets` source (enabled by default)
-        -- sources = {
-        --     default = { 'lsp', 'path', 'snippets', 'buffer' },
-        -- },
-    },
+    -- opts = {
+    --     -- snippets = { preset = 'luasnip' },
+    --     -- -- ensure you have the `snippets` source (enabled by default)
+    --     -- sources = {
+    --     --     default = { 'lsp', 'path', 'snippets', 'buffer' },
+    --     -- },
+    -- },
 	completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
 		menu = {
