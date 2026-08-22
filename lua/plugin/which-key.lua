@@ -16,6 +16,7 @@ wk.add({
       desc = "Format file or range",
       mode = { "n", "v" },
     },
+    { "<leader>t", group = "Terminal" },
     { "<leader>f", group = "File/Telescope" },
     { "<leader>f1", hidden = true },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffer" },
