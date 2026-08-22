@@ -38,9 +38,6 @@ vim.pack.add({
   -- Treesitter  (run :TSUpdate after install to pull language parsers)
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 
-  -- Tab bar
-  { src = "https://github.com/romgrk/barbar.nvim" },
-
   -- Status line
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
 
@@ -113,17 +110,8 @@ vim.cmd("syntax on")
 local map   = vim.keymap.set
 local mopts = { silent = true }
 
--- Barbar: tab navigation
-map("n", "<A-,>",     "<Cmd>BufferPrevious<CR>",    mopts)
-map("n", "<A-.>",     "<Cmd>BufferNext<CR>",         mopts)
--- macOS Option-comma/period may be sent as these characters unless Option is
--- configured as Meta in the terminal.
-map("n", "≤",         "<Cmd>BufferPrevious<CR>",    mopts)
-map("n", "≥",         "<Cmd>BufferNext<CR>",         mopts)
-map("n", "<A-<>",     "<Cmd>BufferMovePrevious<CR>", mopts)
--- Uncomment and pick a distinct key for MoveNext if needed:
--- map("n", "<A->>",  "<Cmd>BufferMoveNext<CR>",     mopts)
-map("n", "<leader>x", "<Cmd>BufferClose<CR>",        mopts)
+-- Close the current buffer
+map("n", "<leader>x", "<Cmd>bdelete<CR>",            { silent = true, desc = "Close buffer" })
 
 -- Save all buffers
 map("n", "<leader>s", "<Cmd>wa<CR>",                 mopts)
