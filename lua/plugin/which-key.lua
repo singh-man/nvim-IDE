@@ -6,8 +6,36 @@ wk.setup {
   -- refer to the configuration section below
 }
 
+local function format_json_with_jq()
+  if vim.fn.executable("jq") ~= 1 then
+    vim.notify("jq is not installed", vim.log.levels.ERROR)
+    return
+  end
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  local input = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
+  local result = vim.system({ "jq", "." }, { stdin = input, text = true }):wait()
+
+  if result.code ~= 0 then
+    local message = vim.trim(result.stderr or "")
+    if message == "" then
+      message = "jq failed with exit code " .. result.code
+    end
+    vim.notify(message, vim.log.levels.ERROR)
+    return
+  end
+
+  local lines = vim.split(result.stdout or "", "\n", { plain = true })
+  if lines[#lines] == "" then
+    table.remove(lines)
+  end
+
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+end
+
 wk.add({
-    { "<leader>jq", "<cmd>keepjumps %!jq .<cr>", desc = "Format JSON with jq", mode = "n" },
+    -- { "<leader>jq", "<cmd>keepjumps %!jq .<cr>", desc = "Format JSON with jq", mode = "n" },
+    { "<leader>jq", format_json_with_jq, desc = "Format JSON with jq", mode = "n" },
     {
       "<leader>p",
       function()
