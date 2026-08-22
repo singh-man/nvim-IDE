@@ -8,11 +8,12 @@ vim.opt.termguicolors = true
 
 require'nvim-tree'.setup {
   sort = { sorter = "case_sensitive",},
-  view = { width = 25, side = 'left', adaptive_size = true,},
+  view = { width = { min = 25 }, side = 'left',},
   renderer = { group_empty = true,},
   filters = { dotfiles = true,},
-  git = { enable = true, ignore = true, timeout = 500, },
-  trash = {cmd = "trash", require_confirm = true }
+  git = { enable = true, timeout = 500, },
+  trash = { cmd = "trash" },
+  ui = { confirm = { trash = true } },
 }
 
 -- NeoVim key map for this
