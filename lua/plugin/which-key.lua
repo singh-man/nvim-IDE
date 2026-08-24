@@ -45,6 +45,7 @@ wk.add({
       mode = { "n", "v" },
     },
     { "<leader>t", group = "Terminal" },
+    { "<leader>l", group = "LSP/Trouble" },
     { "<leader>f", group = "File/Telescope" },
     { "<leader>f1", hidden = true },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffer" },
