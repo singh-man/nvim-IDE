@@ -108,7 +108,7 @@ vim.cmd("syntax on")
 -- KEYMAPS
 -- ---------------------------------------------------------------------------
 local map   = vim.keymap.set
-local mopts = { silent = true }
+local mopts = { silent = false }
 
 -- Close the current buffer
 map("n", "<leader>x", "<Cmd>bdelete<CR>",            { silent = true, desc = "Close buffer" })
