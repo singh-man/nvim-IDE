@@ -125,7 +125,7 @@ Install Prettier through Mason:
 
 Press `<leader>p` in normal mode to format the current file. Select a range in visual mode and press `<leader>p` to format only that range. Run `:ConformInfo` to check which formatter is available for the current buffer.
 
-The `<leader>jq` mapping formats an entire JSON buffer using `jq`. The buffer must contain valid JSON; the mapping does not support comments in JSONC files.
+The `<leader>jq` mapping formats an entire JSON buffer using `jq` in normal mode, or only the selected JSON in visual mode. The input must contain valid JSON; the mapping does not support comments in JSONC files or block selections.
 
 ## Further reading
 
