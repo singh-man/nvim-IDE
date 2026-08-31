@@ -6,14 +6,12 @@ wk.setup {
   -- refer to the configuration section below
 }
 
-local function format_json_with_jq()
+local function jq_format(input)
   if vim.fn.executable("jq") ~= 1 then
     vim.notify("jq is not installed", vim.log.levels.ERROR)
-    return
+    return nil
   end
 
-  local bufnr = vim.api.nvim_get_current_buf()
-  local input = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
   local result = vim.system({ "jq", "." }, { stdin = input, text = true }):wait()
 
   if result.code ~= 0 then
@@ -22,7 +20,7 @@ local function format_json_with_jq()
       message = "jq failed with exit code " .. result.code
     end
     vim.notify(message, vim.log.levels.ERROR)
-    return
+    return nil
   end
 
   local lines = vim.split(result.stdout or "", "\n", { plain = true })
@@ -30,12 +28,64 @@ local function format_json_with_jq()
     table.remove(lines)
   end
 
+  return lines
+end
+
+local function format_json_with_jq()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lines = jq_format(table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n"))
+  if not lines then
+    return
+  end
+
   vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+end
+
+local function format_json_selection_with_jq()
+  local visual_mode = vim.fn.mode()
+  if visual_mode == "\22" or visual_mode == "<C-v>" then
+    vim.notify("jq formatting does not support block selections", vim.log.levels.ERROR)
+    return
+  end
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  local start = vim.fn.getpos("v")
+  local finish = vim.fn.getpos(".")
+
+  if start[2] > finish[2] or (start[2] == finish[2] and start[3] > finish[3]) then
+    start, finish = finish, start
+  end
+
+  local start_row = start[2] - 1
+  local start_col = start[3] - 1
+  local end_row = finish[2] - 1
+  local end_col = finish[3]
+
+  if visual_mode == "V" then
+    start_col = 0
+    end_col = -1
+  end
+
+  local input = table.concat(
+    vim.api.nvim_buf_get_text(bufnr, start_row, start_col, end_row, end_col, {}),
+    "\n"
+  )
+  local lines = jq_format(input)
+  if not lines then
+    return
+  end
+
+  if visual_mode == "V" then
+    vim.api.nvim_buf_set_lines(bufnr, start_row, end_row + 1, false, lines)
+  else
+    vim.api.nvim_buf_set_text(bufnr, start_row, start_col, end_row, end_col, lines)
+  end
 end
 
 wk.add({
     -- { "<leader>jq", "<cmd>keepjumps %!jq .<cr>", desc = "Format JSON with jq", mode = "n" },
     { "<leader>jq", format_json_with_jq, desc = "Format JSON with jq", mode = "n" },
+    { "<leader>jq", format_json_selection_with_jq, desc = "Format selected JSON with jq", mode = "v" },
     {
       "<leader>p",
       function()
