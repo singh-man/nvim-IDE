@@ -26,5 +26,18 @@ require("lualine").setup({
         },
       },
     },
+    lualine_z = {
+      {
+        function()
+          return " × "
+        end,
+        on_click = function(_, button)
+          if button == "l" then
+            vim.cmd("bdelete")
+          end
+        end,
+        desc = "Close current buffer",
+      },
+    },
   },
 })
