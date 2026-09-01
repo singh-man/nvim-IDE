@@ -10,8 +10,8 @@ require'nvim-tree'.setup {
   sort = { sorter = "case_sensitive",},
   view = { width = { min = 25 }, side = 'left',},
   renderer = { group_empty = true,},
-  filters = { dotfiles = true,},
-  git = { enable = true, timeout = 500, },
+  filters = { dotfiles = false, git_ignored = false, },
+  git = { enable = true, timeout = 200, },
   trash = { cmd = "trash" },
   ui = { confirm = { trash = true } },
 }
